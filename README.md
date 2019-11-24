@@ -1,6 +1,10 @@
 # autocookiescript
 You don't need a javascript console to bake cookies. Shell script, imagemagick, and some x11 tools can.
 
+# Feature
+- Detects the big cookie and click it
+- Detects the golden cookie and click it
+
 # Requirements (AFAIK)
 - A browser that can run [Cookie Clicker](https://orteil.dashnet.org/cookieclicker/)
 - x11-apps for xwd
