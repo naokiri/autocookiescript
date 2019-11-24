@@ -112,7 +112,7 @@ detect_square_boundary_diff() {
     else
         debug_out=$(mktemp "tmp/diff_component.XXXXXX")
     fi
-    convert $diff_out -define connected-components:verbose=true -define connected-components:area-threshold=4900 -connected-components 8 $debug_out | tail -n +2 > $components
+    convert $diff_out -define connected-components:verbose=true -define connected-components:area-threshold=3000 -connected-components 8 $debug_out | tail -n +2 > $components
     vout "saved $components"
     while IFS= read -r line
     do
@@ -122,13 +122,14 @@ detect_square_boundary_diff() {
         boxheight=$(echo "$bbox" | tr 'x+' ' ' | cut -d' ' -f2)
         set +o errexit
         # Detect not too big and square diff 
-        is_good_square=$(expr $boxwidth \< 200 \& $boxwidth \> \( $boxheight \- 2 \) \& $boxwidth \< \( $boxheight \+ 2 \))
+        is_good_square=$(expr $boxwidth \< 200 \& $boxwidth \> \( $boxheight \- 5 \) \& $boxwidth \< \( $boxheight \+ 5 \))
         set -o errexit
         if [ $is_good_square -eq 1 ]; then
             # Must be golden cookie            
             boxx=$(echo "$bbox" | tr 'x+' ' ' | cut -d' ' -f3)
             boxy=$(echo "$bbox" | tr 'x+' ' ' | cut -d' ' -f4)
             echo "$boxx $boxy $boxwidth"
+            vout "Found golden: $boxx $boxy $boxwidth"
         fi
     done < $components
     
