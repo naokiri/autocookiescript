@@ -3,6 +3,8 @@ You don't need a javascript console to bake cookies. Shell script, imagemagick, 
 
 A shell script made cookie clicker automation tool.
 
+![Screenshot of running AutoCookieScript](https://raw.githubusercontent.com/naokiri/autocookiescript/screenshot/autocookiescreen.png "Screenshot")
+
 # Feature
 - Detects the big cookie and click it
 - Detects the golden cookie and click it

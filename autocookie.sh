@@ -178,6 +178,7 @@ main() {
             golden_x=$(expr $golden_edge_x + $golden_r)
             golden_y=$(expr $golden_edge_y + $golden_r)
             vout "golden click $golden_x $golden_y"
+            echo "Golden cookie click!"
             xdotool mousemove --window "$browser_x_id" $golden_x $golden_y click 1
         fi
 
